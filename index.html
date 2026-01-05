@@ -82,33 +82,33 @@
     <footer>Stay tuned for more updates!</footer>
   </div>
 
-  <script>
-    // Fixed public launch date (CHANGE THIS DATE)
-const launchDate = new Date("2026-07-01T00:00:00Z");
+ <script>
+  // Fixed launch date: 5 Feb 2026
+  const launchDate = new Date("2026-02-05T00:00:00Z");
 
+  function updateCountdown() {
+    const now = new Date();
+    const diff = launchDate - now;
 
-    function updateCountdown() {
-      const now = new Date();
-      const diff = launchDate - now;
-
-      if (diff <= 0) {
-        document.querySelector('.container').innerHTML = "<h1>It's Here! 🎉</h1><p>Check it out now!</p>";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById('days').textContent = days;
-      document.getElementById('hours').textContent = hours;
-      document.getElementById('minutes').textContent = minutes;
-      document.getElementById('seconds').textContent = seconds;
+    if (diff <= 0) {
+      document.querySelector('.container').innerHTML = "<h1>It's Here! 🎉</h1><p>Check it out now!</p>";
+      return;
     }
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
 </body>
 </html>

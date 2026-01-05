@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Something exciting is coming in 6 months! Stay tuned.">
+  <title>Coming Soon</title>
+  <style>
+    /* Reset & basic styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    body, html { height: 100%; }
+
+    /* Background gradient */
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+
+    /* Countdown timer */
+    .countdown {
+      display: flex;
+      justify-content: space-between;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .countdown div {
+      flex: 1;
+      margin: 0 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* Footer */
+    footer {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      h1 { font-size: 2rem; }
+      .countdown { flex-direction: column; gap: 10px; }
+      .countdown div { margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Something Exciting is Coming!</h1>
+    <p>Mark your calendar. We launch in:</p>
+
+    <div class="countdown">
+      <div><span id="days">0</span> Days</div>
+      <div><span id="hours">0</span> Hours</div>
+      <div><span id="minutes">0</span> Minutes</div>
+      <div><span id="seconds">0</span> Seconds</div>
+    </div>
+
+    <footer>Stay tuned for more updates!</footer>
+  </div>
+
+  <script>
+    // Set launch date 6 months from now
+    const launchDate = new Date();
+    launchDate.setMonth(launchDate.getMonth() + 6);
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = launchDate - now;
+
+      if (diff <= 0) {
+        document.querySelector('.container').innerHTML = "<h1>It's Here! 🎉</h1><p>Check it out now!</p>";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>

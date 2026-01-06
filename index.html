@@ -6,6 +6,29 @@
   <meta name="description" content="Something exciting is coming in 6 months! Stay tuned.">
   <title>Coming Soon</title>
   <style>
+    .name-header {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  font-weight: 300;
+  opacity: 0.85;
+}
+    .loop {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+
     /* Reset & basic styles */
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
     body, html { height: 100%; }
@@ -26,6 +49,11 @@
     .container {
       max-width: 600px;
     }
+    .container {
+  position: relative;
+  z-index: 1;
+}
+
 
     h1 {
       font-size: 3rem;
@@ -68,6 +96,8 @@
   </style>
 </head>
 <body>
+  <div class="name-header">ASHUTOSH RAI</div>
+
   <div class="container">
     <h1>Something Exciting is Coming!</h1>
     <p>Mark your calendar. We launch in:</p>
@@ -109,6 +139,7 @@
   setInterval(updateCountdown, 1000);
   updateCountdown();
 </script>
+<div class="loop"></div>
 
 </body>
 </html>
